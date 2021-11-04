@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/Image";
-import checkMark from "../checkMark.jpg";
+import checkMark from "../assets/checkMark.jpg";
 
 const Uploaded: FC<{ file: { fileId: string; type: string } }> = ({ file }) => {
   const { fileId, type } = file;
