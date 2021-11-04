@@ -4,7 +4,6 @@ import React from "react";
 
 const video: NextPage = () => {
   const router = useRouter();
-  console.log(router.query);
   const videoId = router.query.videoId;
   const videoSrc = `http://localhost:4000/video/${videoId}`;
   const videoLink = `http://localhost:3000/video/${videoId}`;

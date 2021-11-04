@@ -4,7 +4,6 @@ import Image from "next/Image";
 
 const image: NextPage = () => {
   const router = useRouter();
-  console.log(router.query);
   const ImageId = router.query.imageId;
   const imageSrc = `http://localhost:4000/image/${ImageId}`;
   const imageLink = `http://localhost:3000/image/${ImageId}`;
