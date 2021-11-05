@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Home from "../components/Home";
 
-const index: NextPage = () => {
+const Index: NextPage = () => {
   return (
     <div className="">
       <Head>
@@ -15,4 +15,4 @@ const index: NextPage = () => {
   );
 };
 
-export default index;
+export default Index;

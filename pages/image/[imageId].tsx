@@ -1,11 +1,12 @@
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
+import constants from "../../constants";
 
 const Image: NextPage = () => {
   const router = useRouter();
   const ImageId = router.query.imageId;
-  const imageSrc = `http://localhost:4000/image/${ImageId}`;
-  const imageLink = `http://localhost:3000/image/${ImageId}`;
+  const imageSrc = `${constants.SERVER_URI}/image/${ImageId}`;
+  const imageLink = `${constants.CLIENT_URI}/image/${ImageId}`;
   return (
     <div className="bg-gray-100 h-screen flex justify-center items-center">
       <div className="bg-white shadow-xl flex flex-col items-center rounded-2xl">

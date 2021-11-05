@@ -1,12 +1,13 @@
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
+import constants from "../../constants";
 
 const Video: NextPage = () => {
   const router = useRouter();
   const videoId = router.query.videoId;
-  const videoSrc = `http://localhost:4000/video/${videoId}`;
-  const videoLink = `http://localhost:3000/video/${videoId}`;
+  const videoSrc = `${constants.SERVER_URI}/video/${videoId}`;
+  const videoLink = `${constants.CLIENT_URI}/video/${videoId}`;
   return (
     <div className="bg-gray-100 h-screen flex justify-center items-center">
       <div className="bg-white shadow-xl flex flex-col items-center rounded-2xl">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import constants from "../constants";
 
 interface props {
@@ -16,13 +16,10 @@ interface props {
 }
 
 const Initial: FC<props> = ({ setLoading, setFile }) => {
-  const [fileId, setFileId] = useState<string>();
-
   const sendFile = (files: FileList) => {
     const formData = new FormData();
     formData.append("file", files[0]);
     axios.post(`${constants.SERVER_URI}/upload`, formData, {}).then((res) => {
-      setFileId(res.data);
       setLoading(false);
       setFile(res.data);
     });
@@ -30,7 +27,7 @@ const Initial: FC<props> = ({ setLoading, setFile }) => {
 
   const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
     const data = e.currentTarget.files;
-    if (!data || fileId) return;
+    if (!data) return;
     sendFile(data);
     setLoading(true);
   };
@@ -38,7 +35,7 @@ const Initial: FC<props> = ({ setLoading, setFile }) => {
   const drop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const data = e.dataTransfer.files;
-    if (!data || fileId) return;
+    if (!data) return;
     sendFile(data);
     setLoading(true);
   };
@@ -52,20 +49,10 @@ const Initial: FC<props> = ({ setLoading, setFile }) => {
           e.preventDefault();
         }}
         onDrop={drop}
-        className={`${
-          fileId ? "h-auto" : "h-60"
-        } w-96 overflow-hidden bg-gray-100 border-dashed border-2 border-blue-400 rounded-2xl m-6 flex justify-center items-center`}
+        className={`
+        h-60 w-96 overflow-hidden bg-gray-100 border-dashed border-2 border-blue-400 rounded-2xl m-6 flex justify-center items-center`}
       >
-        {fileId ? (
-          <div className="">
-            <img
-              className="w-96 h-auto"
-              src={`${constants.SERVER_URI}/image/${fileId}`}
-            />
-          </div>
-        ) : (
-          <p>Drag and drop your image here</p>
-        )}
+        <p>Drag and drop your image here</p>
       </div>
       <p>or</p>
       <form>
