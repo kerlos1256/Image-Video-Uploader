@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
+import constants from "../constants";
 
 interface props {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,7 +21,7 @@ const initial: FC<props> = ({ setLoading, setFile }) => {
   const sendFile = (files: FileList) => {
     const formData = new FormData();
     formData.append("file", files[0]);
-    axios.post("http://localhost:4000/upload", formData, {}).then((res) => {
+    axios.post(`${constants.SERVER_URI}/upload`, formData, {}).then((res) => {
       setFileId(res.data);
       setLoading(false);
       setFile(res.data);
@@ -59,7 +60,7 @@ const initial: FC<props> = ({ setLoading, setFile }) => {
           <div className="">
             <img
               className="w-96 h-auto"
-              src={`http://localhost:4000/image/${fileId}`}
+              src={`${constants.SERVER_URI}/image/${fileId}`}
             />
           </div>
         ) : (

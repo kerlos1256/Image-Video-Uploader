@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import Image from "next/Image";
 
 const image: NextPage = () => {
   const router = useRouter();

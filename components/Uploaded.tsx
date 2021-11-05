@@ -1,12 +1,13 @@
 import React, { FC } from "react";
-import Image from "next/Image";
+import Image from "next/image";
 import checkMark from "../assets/checkMark.jpg";
+import constants from "../constants";
 
 const Uploaded: FC<{ file: { fileId: string; type: string } }> = ({ file }) => {
   const { fileId, type } = file;
-  const imageSrc = `http://localhost:4000/image/${fileId}`;
+  const imageSrc = `${constants.SERVER_URI}/image/${fileId}`;
   const imageLink = `http://localhost:3000/image/${fileId}`;
-  const videoSrc = `http://localhost:4000/video/${fileId}`;
+  const videoSrc = `${constants.SERVER_URI}/video/${fileId}`;
   const videoLink = `http://localhost:3000/video/${fileId}`;
   return (
     <div className="flex flex-col items-center px-8">
