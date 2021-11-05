@@ -15,7 +15,7 @@ interface props {
   >;
 }
 
-const initial: FC<props> = ({ setLoading, setFile }) => {
+const Initial: FC<props> = ({ setLoading, setFile }) => {
   const [fileId, setFileId] = useState<string>();
 
   const sendFile = (files: FileList) => {
@@ -83,4 +83,4 @@ const initial: FC<props> = ({ setLoading, setFile }) => {
   );
 };
 
-export default initial;
+export default Initial;

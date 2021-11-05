@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 
-const image: NextPage = () => {
+const Image: NextPage = () => {
   const router = useRouter();
   const ImageId = router.query.imageId;
   const imageSrc = `http://localhost:4000/image/${ImageId}`;
@@ -30,4 +30,4 @@ const image: NextPage = () => {
   );
 };
 
-export default image;
+export default Image;

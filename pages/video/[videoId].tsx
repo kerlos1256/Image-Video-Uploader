@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 
-const video: NextPage = () => {
+const Video: NextPage = () => {
   const router = useRouter();
   const videoId = router.query.videoId;
   const videoSrc = `http://localhost:4000/video/${videoId}`;
@@ -37,4 +37,4 @@ const video: NextPage = () => {
   );
 };
 
-export default video;
+export default Video;
